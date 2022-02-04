@@ -68,7 +68,7 @@ try:
     height = int(sys.argv[1])
     wide = int(sys.argv[2])
     if(len(sys.argv) > 3):
-        probability = int(sys.argv[3])
+        probability = float(sys.argv[3])
 
 except ValueError:
     print("Usege: 高さ 幅 (爆弾生成率)")
