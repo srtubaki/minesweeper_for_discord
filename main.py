@@ -72,7 +72,8 @@ try:
     if(len(sys.argv) > 4):
         bomb_mark = sys.argv[4]
 
-except ValueError:
+except (ValueError,IndexError) as e:
+    print(e)
     print("Usege: 高さ 幅 (爆弾生成率) (爆弾記号)")
     exit()
 
