@@ -1,7 +1,7 @@
 import sys
 import random
 
-
+bomb_mark:str = "bomb"
 class Boad:
     def __init__(self, h, w):
         self.height, self.wide = h, w
@@ -30,7 +30,7 @@ class Boad:
         nums = ["blue_square", "one", "two", "three",
                 "four", "five", "six", "seven", "eight"]
         nums = ["||:" + s + ":||" for s in nums]
-        return self.to_string(nums, "||:bomb:||", sep="")
+        return self.to_string(nums, "||:" + bomb_mark + ":||", sep="")
 
     def bomb_count(self):
         c = 0
@@ -69,11 +69,12 @@ try:
     wide = int(sys.argv[2])
     if(len(sys.argv) > 3):
         probability = float(sys.argv[3])
+    if(len(sys.argv) > 4):
+        bomb_mark = sys.argv[4]
 
 except ValueError:
-    print("Usege: 高さ 幅 (爆弾生成率)")
+    print("Usege: 高さ 幅 (爆弾生成率) (爆弾記号)")
     exit()
-
 
 boad = Boad(height, wide)
 boad.generate_random(probability)
